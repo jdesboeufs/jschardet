@@ -33,9 +33,9 @@
 
 var constants = require('./constants');
 var MBCSGroupProber = require('./mbcsgroupprober');
-var SBCSGroupProber = require('./sbcsgroupprober');
+// var SBCSGroupProber = require('./sbcsgroupprober');
 var Latin1Prober = require('./latin1prober');
-var EscCharSetProber = require('./escprober')
+// var EscCharSetProber = require('./escprober')
 var logger = require('./logger');
 
 function UniversalDetector(options) {
@@ -128,21 +128,21 @@ function UniversalDetector(options) {
         this._mLastChar = aBuf.slice(-1);
 
         if( this._mInputState == _state.escAscii ) {
-            if( !this._mEscCharsetProber ) {
-                this._mEscCharsetProber = new EscCharSetProber();
-            }
-            if( this._mEscCharsetProber.feed(aBuf) == constants.foundIt ) {
-                this.result = {
-                    "encoding": this._mEscCharsetProber.getCharsetName(),
-                    "confidence": this._mEscCharsetProber.getConfidence()
-                };
-                this.done = true;
-            }
+            // if( !this._mEscCharsetProber ) {
+            //     this._mEscCharsetProber = new EscCharSetProber();
+            // }
+            // if( this._mEscCharsetProber.feed(aBuf) == constants.foundIt ) {
+            //     this.result = {
+            //         "encoding": this._mEscCharsetProber.getCharsetName(),
+            //         "confidence": this._mEscCharsetProber.getConfidence()
+            //     };
+            //     this.done = true;
+            // }
         } else if( this._mInputState == _state.highbyte ) {
             if( this._mCharsetProbers.length == 0 ) {
                 this._mCharsetProbers = [
                     new MBCSGroupProber(),
-                    new SBCSGroupProber(),
+                    // new SBCSGroupProber(),
                     new Latin1Prober()
                 ];
             }

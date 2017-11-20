@@ -28,24 +28,24 @@
  */
 
 var CharSetGroupProber = require('./charsetgroupprober');
-var Big5Prober = require('./big5prober');
+// var Big5Prober = require('./big5prober');
 var UTF8Prober = require('./utf8prober');
-var SJISProber = require('./sjisprober');
-var EUCJPProber = require('./eucjpprober');
-var GB2312Prober = require('./gb2312prober');
-var EUCKRProber = require('./euckrprober');
-var EUCTWProber = require('./euctwprober');
+// var SJISProber = require('./sjisprober');
+// var EUCJPProber = require('./eucjpprober');
+// var GB2312Prober = require('./gb2312prober');
+// var EUCKRProber = require('./euckrprober');
+// var EUCTWProber = require('./euctwprober');
 
 function MBCSGroupProber() {
     CharSetGroupProber.apply(this);
     this._mProbers = [
-        new UTF8Prober(),
-        new SJISProber(),
-        new EUCJPProber(),
-        new GB2312Prober(),
-        new EUCKRProber(),
-        new Big5Prober(),
-        new EUCTWProber()
+        new UTF8Prober() //,
+        // new SJISProber(),
+        // new EUCJPProber(),
+        // new GB2312Prober(),
+        // new EUCKRProber(),
+        // new Big5Prober(),
+        // new EUCTWProber()
     ];
     this.reset();
 }
